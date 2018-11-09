@@ -18,12 +18,12 @@ The goals / steps of this project are the following:
 [//]: # (Image References)
 
 [image1]: ./examples/Dataset%20samples.png "Dataset samples"
-[image2]: ./examples/grayscale.jpg "Grayscaling"
-[image3]: ./examples/random_noise.jpg "Random Noise"
-[image4]: ./examples/placeholder.png "Traffic Sign 1"
-[image5]: ./examples/placeholder.png "Traffic Sign 2"
-[image6]: ./examples/placeholder.png "Traffic Sign 3"
-[image7]: ./examples/placeholder.png "Traffic Sign 4"
+[image2]: ./examples/Dataset%20distribution.png "Dataset distribution"
+[image3]: ./examples/Origina%20to%20Grayscale.png "Original to Grayscale"
+[image4]: ./examples/Grayscale%20to%20Normalized.png  "Grayscale to Normalized"
+[image5]: ./examples/Normalized%20to%20Rotated.png  "Normalized to Rotated"
+[image6]: ./examples/Rotated%20to%20Translated.png  "Rotated to Translated"
+[image7]: ./examples/Translated%20to%20Random%20brightness.png  "Translated to Random brightness"
 [image8]: ./examples/placeholder.png "Traffic Sign 5"
 
 ## Rubric Points
@@ -32,40 +32,58 @@ The goals / steps of this project are the following:
 ---
 ### Writeup / README
 
-#### 1. Provide a Writeup / README that includes all the rubric points and how you addressed each one. You can submit your writeup as markdown or pdf. You can use this template as a guide for writing the report. The submission includes the project code.
-
-You're reading it! and here is a link to my [project code](https://github.com/udacity/CarND-Traffic-Sign-Classifier-Project/blob/master/Traffic_Sign_Classifier.ipynb)
+Here is a link to my [project code](https://github.com/PedroHRPBS/CarND-Traffic-Sign-Classifier-Project/blob/master/Traffic_Sign_Classifier.ipynb)
 
 ### Data Set Summary & Exploration
 
 #### 1. Provide a basic summary of the data set. In the code, the analysis should be done using python, numpy and/or pandas methods rather than hardcoding results manually.
 
-I used the pandas library to calculate summary statistics of the traffic
+I used the numpy library to calculate summary statistics of the traffic
 signs data set:
 
-* The size of training set is ?
-* The size of the validation set is ?
-* The size of test set is ?
-* The shape of a traffic sign image is ?
-* The number of unique classes/labels in the data set is ?
+* The size of training set is 34799
+* The size of the validation set is 4410
+* The size of test set is 12630
+* The shape of a traffic sign image is (32, 32, 3)
+* The number of unique classes/labels in the data set is 43
 
 #### 2. Include an exploratory visualization of the dataset.
 
-Here is an exploratory visualization of the data set. It is a bar chart showing how the data ...
+Here is an exploratory visualization of the data set. First, we have 5 random samples of images from the training set, just for the reader to understand what kind of data we are working with.
 
 ![alt text][image1]
+
+Then we have 3 histograms, that show how many images we have from each class.
+
+![alt text][image2]
 
 ### Design and Test a Model Architecture
 
 #### 1. Describe how you preprocessed the image data. What techniques were chosen and why did you choose these techniques? Consider including images showing the output of each preprocessing technique. Pre-processing refers to techniques such as converting to grayscale, normalization, etc. (OPTIONAL: As described in the "Stand Out Suggestions" part of the rubric, if you generated additional data for training, describe why you decided to generate additional data, how you generated the data, and provide example images of the additional data. Then describe the characteristics of the augmented training set like number of images in the set, number of images for each class, etc.)
 
-As a first step, I decided to convert the images to grayscale because ...
+As a first step, I decided to convert the images to grayscale because doing so, we can reduce the number of data to work with and increase the processing speed. Also, some papers have stated that using grayscale images have made their overall accuracy increase.
 
 Here is an example of a traffic sign image before and after grayscaling.
 
-![alt text][image2]
+![alt text][image3]
 
-As a last step, I normalized the image data because ...
+As a second step, I normalized the image data because as stated in some papers, having a dataset with 0 mean and with standard deviation of 1 is always a good practice. Specially, when we are dealing with multiple features that have different value ranges. Doing so we prevent the features that have higher range to have a higher influence on the results.
+
+Here is an example of the previous image after normalization.
+
+![alt text][image4]
+
+As a third step, I rotated the image following the paper from Sermanet and LeCun. Considering that in the real world the sign would be visible in different orientations, having the possibility to utilize this kind of data in training is a good technique to generalize the results.
+
+Here is an example of the previous image after rotation.
+
+![alt text][image5]
+
+As a fourth step, I translated the image also following Sermanet and LeCun. Considering that the position of the sign inside the image doesn't interfere with the existence of the sign. Generating data with the same sign in different positions, improve the capability of generalization.
+
+Here is an example of the previous image after translation.
+
+![alt text][image6]
 
 I decided to generate additional data because ... 
 
