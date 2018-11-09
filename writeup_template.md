@@ -24,7 +24,7 @@ The goals / steps of this project are the following:
 [image5]: ./examples/Normalized%20to%20Rotated.png  "Normalized to Rotated"
 [image6]: ./examples/Rotated%20to%20Translated.png  "Rotated to Translated"
 [image7]: ./examples/Translated%20to%20Random%20brightness.png  "Translated to Random brightness"
-[image8]: ./examples/placeholder.png "Traffic Sign 5"
+[image8]: ./examples/Original%20to%20After%20Pipeline.png "Original to After Pipeline"
 
 ## Rubric Points
 ### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.  
@@ -84,6 +84,20 @@ As a fourth step, I translated the image also following Sermanet and LeCun. Cons
 Here is an example of the previous image after translation.
 
 ![alt text][image6]
+
+As a fifth step, I randomized the brightness of the image. Considering that the real world provide different intensities of illumination, it's important to have data that considers these changes.
+
+Here is an example of the previous image after brightness randomization.
+
+![alt text][image7]
+
+After discretizing all the 5 steps that were developed, a pipeline that does all of them sequentially was created. 
+
+Here is an example of a random image before and after the pipeline.
+
+![alt text][image8]
+
+
 
 I decided to generate additional data because ... 
 
