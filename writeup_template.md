@@ -19,12 +19,16 @@ The goals / steps of this project are the following:
 
 [image1]: ./examples/Dataset%20samples.png "Dataset samples"
 [image2]: ./examples/Dataset%20distribution.png "Dataset distribution"
-[image3]: ./examples/Origina%20to%20Grayscale.png "Original to Grayscale"
+[image3]: ./examples/Original%20to%20Grayscale.png "Original to Grayscale"
 [image4]: ./examples/Grayscale%20to%20Normalized.png  "Grayscale to Normalized"
 [image5]: ./examples/Normalized%20to%20Rotated.png  "Normalized to Rotated"
 [image6]: ./examples/Rotated%20to%20Translated.png  "Rotated to Translated"
 [image7]: ./examples/Translated%20to%20Random%20brightness.png  "Translated to Random brightness"
 [image8]: ./examples/Original%20to%20After%20Pipeline.png "Original to After Pipeline"
+[image9]: ./examples/Training%20data%20distribution%20after%20augmentation.png "Training data distribution after augmentation"
+[image10]: ./examples/Original%20to%20After%20Pipeline.png "Original to After Pipeline"
+[image11]: ./examples/Original%20to%20After%20Pipeline.png "Original to After Pipeline"
+
 
 ## Rubric Points
 ### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.  
@@ -97,11 +101,22 @@ Here is an example of a random image before and after the pipeline.
 
 ![alt text][image8]
 
+---
 
+I decided to generate additional data because, having different quantities of data for different classes makes the model trend in the direction of the class with more samples. And the classes that have fewer examples trend to be harder to predict.
 
-I decided to generate additional data because ... 
+Considering so, a technique to equalize the number of samples per class was implemented.
 
-To add more data to the the data set, I used the following techniques because ... 
+To add more data to the the data set, I used the following technique:
+* First the training data set was entirely changed to grayscale and normalized
+* After that, we found the number of samples that the class with more samples had.
+* Then 2 loops were implemented. The first was a loop to loop through all the classes. The second was a loop that measured the number of samples of the respective class.
+* With both loops implemented, we just had to generate a new image from that class (using the pipeline) until the class had the same number of images than the class with most images.
+
+After that we achieved the following distribution:
+
+![alt text][image9]
+
 
 Here is an example of an original image and an augmented image:
 
