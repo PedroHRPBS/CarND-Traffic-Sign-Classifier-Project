@@ -158,12 +158,18 @@ My final model results were:
 * test set accuracy of 92.7%
 
 To achieve this final model, I did a mix between iterative approach and well known architecture.
+
 First, I tried to use the LeNet architecture, but I got results that couldn't reach the minimum of 0.93.
 I tried some different models that had a worse result than LeNet. So I started considering what I could do differently with my data. 
+
 With that in mind, I figured out the approach of augmenting my data (I wasn't doing that before). After augmenting the data, LeNet was doing a better job than before, but it was still not sufficient.
+
 I tried increasing the number of EPOCHS from 10 to 30, but also had no significant improvement.
+
 After reading the Sermanet and LeCun paper, I tried to modify my LeNet implementation to look more similar to the model discussed on the paper.
+
 That's when I finally arrived to a result that was higher than the minimum required.
+
 Although I saw many implementations on the internet that achieved more than 98% of accuracy, I prefered to stick with my own, and on the future I will improve from that.
  
 ### Test a Model on New Images
