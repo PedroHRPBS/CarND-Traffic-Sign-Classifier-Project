@@ -17,7 +17,7 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./examples/Dataset%20samples.png "Dataset samples"
+[image1]: ./examples/Dataset-samples.png "Dataset samples"
 [image2]: ./examples/Dataset%20distribution.png "Dataset distribution"
 [image3]: ./examples/Original%20to%20Grayscale.png "Original to Grayscale"
 [image4]: ./examples/Grayscale%20to%20Normalized.png  "Grayscale to Normalized"
