@@ -117,29 +117,27 @@ After that we achieved the following distribution:
 
 ![alt text][image9]
 
-
-Here is an example of an original image and an augmented image:
-
-![alt text][image3]
-
-The difference between the original data set and the augmented data set is the following ... 
-
+The difference between the original data set and the augmented data set is 34799 to 86430 images.
 
 #### 2. Describe what your final model architecture looks like including model type, layers, layer sizes, connectivity, etc.) Consider including a diagram and/or table describing the final model.
 
-My final model consisted of the following layers:
+My final model consisted of the following layers (Following Sermanet and LeCun):
 
 | Layer         		|     Description	        					| 
 |:---------------------:|:---------------------------------------------:| 
-| Input         		| 32x32x3 RGB image   							| 
-| Convolution 3x3     	| 1x1 stride, same padding, outputs 32x32x64 	|
+| Input         		| 32x32x1 Grayscale image   							| 
+| Convolution 5x5     	| 1x1 stride, valid padding, outputs 28x28x6 	|
 | RELU					|												|
-| Max pooling	      	| 2x2 stride,  outputs 16x16x64 				|
-| Convolution 3x3	    | etc.      									|
-| Fully connected		| etc.        									|
-| Softmax				| etc.        									|
-|						|												|
-|						|												|
+| Max pooling	      	| 2x2 stride,  outputs 14x14x6 				|
+| Convolution 5x5	    | 1x1 stride, valid padding, outputs 10x10x16			|
+| RELU					|												|
+| Max pooling	      	| 2x2 stride,  outputs 5x5x16 				|
+| Convolution 5x5	    | 1x1 stride, valid padding, outputs 1x1x1176			|
+| RELU					|												|
+| Flatten		| Conv1 (inputs 14x14x6 - outputs 1176)							|
+| Flatten		| Conv3 (inputs 1x1x1176 - outputs 1176)						|
+| Concatenation		| Conv1 and Conv3 - outputs 2352						|
+| Fully Connected	   | outputs 43			|
  
 
 
