@@ -197,8 +197,4 @@ For the first image, the model is sure that this is a yield sign (probability of
 
 ![alt text][image11] 
  
-
-### (Optional) Visualizing the Neural Network (See Step 4 of the Ipython notebook for more details)
-#### 1. Discuss the visual output of your trained network's feature maps. What characteristics did the neural network use to make classifications?
-
-
+ We can see that the model was completely sure about the first 4 signs. But for the last one, the correct guess was the third guess of the model. 
